@@ -78,7 +78,8 @@ ObjectAnimator是ValueAnimator的子类，ObjectAnimato可以对任意对象进�
 
 - 实现对View的缩放操作。
 
-	   	objectAnimator = new ObjectAnimator().ofFloat(image, "scaleX", 1f, 0f, 1f);
+	   	objectAnimator = new ObjectAnimator()
+				.ofFloat(image, "scaleX", 1f, 0f, 1f);
                 objectAnimator.setDuration(2000);
                 objectAnimator.start();
 
@@ -86,19 +87,22 @@ ObjectAnimator是ValueAnimator的子类，ObjectAnimato可以对任意对象进�
 - 实现对View的旋转操作。
 	
 
-		objectAnimator = new ObjectAnimator().ofFloat(image, "rotationX", 0, 360);
+		objectAnimator = new ObjectAnimator()
+				.ofFloat(image, "rotationX", 0, 360);
                 objectAnimator.setDuration(2000);
                 objectAnimator.start();
 - 实现对View的透明度操作
 	
 
-	  	objectAnimator = new ObjectAnimator().ofFloat(image, "alpha", 1f, 0f, 1f);
+	  	objectAnimator = new ObjectAnimator()
+				.ofFloat(image, "alpha", 1f, 0f, 1f);
                 objectAnimator.setDuration(2000);
                 objectAnimator.start();
 
 - 实现对View的位移操作
  
-		   objectAnimator = new ObjectAnimator().ofFloat(image, "translationX", 0, 300, 0);
+		   objectAnimator = new ObjectAnimator()
+				.ofFloat(image, "translationX", 0, 300, 0);
                 objectAnimator.setDuration(2000);
                 objectAnimator.start();
 
@@ -106,9 +110,12 @@ ObjectAnimator是ValueAnimator的子类，ObjectAnimato可以对任意对象进�
 
 - 实现组合动画
 
-     	 ObjectAnimator alpha = new ObjectAnimator().ofFloat(image, "alpha", 1f, 0, 1);
-                ObjectAnimator translationX = new ObjectAnimator().ofFloat(image, "translationX", 0, 300, 0);
-                ObjectAnimator rotationX = new ObjectAnimator().ofFloat(image, "rotationX", 0, 360);
+     	 ObjectAnimator alpha = new ObjectAnimator()
+				.ofFloat(image, "alpha", 1f, 0, 1);
+                ObjectAnimator translationX = new ObjectAnimator()
+				.ofFloat(image, "translationX", 0, 300, 0);
+                ObjectAnimator rotationX = new ObjectAnimator()
+				.ofFloat(image, "rotationX", 0, 360);
                 AnimatorSet animatorSet = new AnimatorSet();
                 animatorSet.setDuration(3000);
                 animatorSet.playTogether(alpha, translationX, rotationX);
@@ -121,11 +128,16 @@ ObjectAnimator是ValueAnimator的子类，ObjectAnimato可以对任意对象进�
 
 - 实现次序播放控制
 
-     	ObjectAnimator alpha1 = new ObjectAnimator().ofFloat(image, "alpha", 1f, 0.2f);
-                ObjectAnimator alpha2 = new ObjectAnimator().ofFloat(image, "alpha", 0.2f, 1f);
-                ObjectAnimator translationX1 = new ObjectAnimator().ofFloat(image, "translationX", 0, 300);
-                ObjectAnimator translationX2 = new ObjectAnimator().ofFloat(image, "translationX", 300, 0);
-                ObjectAnimator rotationX1 = new ObjectAnimator().ofFloat(image, "rotationX", 0, 360, 0);
+     	ObjectAnimator alpha1 = new ObjectAnimator()
+				.ofFloat(image, "alpha", 1f, 0.2f);
+                ObjectAnimator alpha2 = new ObjectAnimator()
+				.ofFloat(image, "alpha", 0.2f, 1f);
+                ObjectAnimator translationX1 = new ObjectAnimator()
+				.ofFloat(image, "translationX", 0, 300);
+                ObjectAnimator translationX2 = new ObjectAnimator()
+				.ofFloat(image, "translationX", 300, 0);
+                ObjectAnimator rotationX1 = new ObjectAnimator()
+				.ofFloat(image, "rotationX", 0, 360, 0);
                 AnimatorSet animatorSet1 = new AnimatorSet();
                 animatorSet1.setDuration(2000);
                 animatorSet1.play(alpha1).before(translationX1);
@@ -483,7 +495,7 @@ animatedFraction这个值是0-1.0f的一个值，描述的是当前动画播放�
 ![](http://ww3.sinaimg.cn/large/0060lm7Tgy1fd8e61n6dcj30c80c8aa3.jpg)
 
 更好的演示贝塞尔曲线可以看下面的动画，图示的坐标点为控制点（好像有点偏题了了....，这个自定义的View见文底Demo）<br>
-当然如果想进一步学习和了解贝塞尔曲线的可自行google，附上常用的贝塞尔曲线[在线演示地址](http://cubic-bezier.com)
+当然如果想进一步学习和了解贝塞尔曲线的可自行google，附上常用贝塞尔曲线[在线演示地址](http://cubic-bezier.com)
 
 ![](http://ww4.sinaimg.cn/large/0060lm7Tgy1fd8e4jjrb0g30c90c8e0k.gif)
 
@@ -543,8 +555,8 @@ Evaluator是值评估器的意思，帮助你很好的完成属性值的计算�
 Stduent：
 
     public class Student {
-   private int age;
-   private int height;
+   		private int age;
+   		private int height;
 
     public Student(int age, int height) {
         this.age = age;
