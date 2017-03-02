@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.flyou.propertyanimator.ValueAnimatorActivity"
+        >
+    <TextView
+            android:textSize="18dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    <Button
+            android:text="value_animator"
+            android:id="@+id/value_animator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    <ImageView
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/boom"
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            />
+</LinearLayout>

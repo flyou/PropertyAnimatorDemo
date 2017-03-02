@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_proprety"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.flyou.propertyanimator.MainActivity"
+        >
+    <Button
+            android:textAllCaps="false"
+            android:id="@+id/basic"
+            android:text="ObjectAnimator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    <Button
+            android:textAllCaps="false"
+            android:id="@+id/valueAnimator"
+            android:text="ValueAnimator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    <Button
+            android:textAllCaps="false"
+            android:id="@+id/interpolator"
+            android:text="Interpolator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    <Button
+            android:textAllCaps="false"
+            android:id="@+id/evaluator"
+            android:text="Evaluator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    <Button
+            android:textAllCaps="false"
+            android:id="@+id/animate"
+            android:text="animate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+
+</LinearLayout>

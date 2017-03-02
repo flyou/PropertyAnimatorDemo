@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_evaluator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.flyou.propertyanimator.EvaluatorActivity"
+        >
+    <TextView
+            android:textSize="22dp"
+            android:gravity="center"
+            android:text="学生年龄:0岁,学生身高:40cm"
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    <Button
+            android:id="@+id/grow"
+            android:text="成长"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+</LinearLayout>
