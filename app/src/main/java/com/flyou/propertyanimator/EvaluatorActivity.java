@@ -29,7 +29,7 @@ public class EvaluatorActivity extends AppCompatActivity {
 
     @OnClick(R.id.grow)
     public void onClick() {
-        ValueAnimator valueAnimator=new ValueAnimator().ofObject(new StudentEvaluator(),new Student(0,40),new Student(22,188));
+        ValueAnimator valueAnimator=new ValueAnimator().ofObject(new StudentEvaluator(),new Student(0,40),new Student(100,300));
         valueAnimator.setDuration(5000);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override

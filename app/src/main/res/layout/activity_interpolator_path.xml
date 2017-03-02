@@ -8,15 +8,25 @@
         tools:context="com.flyou.propertyanimator.interpolator.InterpolatorPathActivity"
         >
     <Button
+            android:text="bezier"
+            android:id="@+id/bezier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    <Button
+
             android:text="go"
             android:id="@+id/go"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
+
     <ImageView
+
             android:id="@+id/image"
             android:src="@drawable/boom"
             android:layout_width="50dp"
             android:layout_height="50dp"
             />
+
 </LinearLayout>

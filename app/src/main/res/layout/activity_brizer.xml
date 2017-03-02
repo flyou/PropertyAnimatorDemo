@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_brizer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="30dp"
+        tools:context="com.flyou.propertyanimator.interpolator.BrizerActivity"
+        >
+<com.flyou.propertyanimator.widget.MyBezierView
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        />
+</RelativeLayout>

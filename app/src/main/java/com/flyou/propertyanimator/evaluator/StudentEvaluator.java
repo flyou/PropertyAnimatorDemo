@@ -20,6 +20,9 @@ public class StudentEvaluator implements TypeEvaluator<Student> {
         int currentAge = (int) (startAge + fraction * (endAge - startAge));
 
         int currentHeight = (int) (startHeight + fraction * (endHeight - startHeight));
+        if (currentAge>=22){
+            currentHeight=188;
+        }
 
         return new Student(currentAge, currentHeight);
     }

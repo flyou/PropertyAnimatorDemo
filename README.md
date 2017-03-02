@@ -144,7 +144,7 @@ alpha1-->rotationX1、translationX1-->translationX2、alpha2
 
 ![](http://ww1.sinaimg.cn/large/0060lm7Tgy1fd7a4plej1g307i0boaz9.gif)
 
-### 使用xml文件创建
+### 使用xml文件创建属性动画
 
 	<animator xmlns:android="http://schemas.android.com/apk/res/android"  
     android:valueFrom="0"  
@@ -480,17 +480,25 @@ animatedFraction这个值是0-1.0f的一个值，描述的是当前动画播放�
 		Path path = new Path();
         path.moveTo(100,100);
         path.quadTo(800, 100, 800, 800);
-![](http://wx4.sinaimg.cn/mw690/a2f7c645ly1fd7qxbdl1vj20ay0bndfm.jpg)
+![](http://ww3.sinaimg.cn/large/0060lm7Tgy1fd8e61n6dcj30c80c8aa3.jpg)
+
+更好的演示贝塞尔曲线可以看下面的动画，图示的坐标点为控制点（好像有点偏题了了....，这个自定义的View见文底Demo）<br>
+当然如果想进一步学习和了解贝塞尔曲线的可自行google，附上常用的贝塞尔曲线[在线演示地址](http://cubic-bezier.com)
+
+![](http://ww4.sinaimg.cn/large/0060lm7Tgy1fd8e4jjrb0g30c90c8e0k.gif)
 
 中间的曲线可以随着参数的改变来改变，那么到底是不是这个样子呢？
 
 ![](http://ww3.sinaimg.cn/large/0060lm7Tgy1fd7rapyd3gg30dw0cowid.gif)
 
-接下来我们给他加上PathInterpolator 制定了连个控制点
+好吧，我们回到动画上，接下来我们给他加上PathInterpolator 制定了连个控制点
 
 objectAnimator1.setInterpolator(new PathInterpolator(0.9f,0.1f,0.5f,0.9f));
 
 ![](http://ww2.sinaimg.cn/large/0060lm7Tgy1fd7reu5itgg30dw0cygpl.gif)
+
+当然你也可以使用连个控制点来完成不同的加速度效果，其实上面路径的曲线效果就类似与动画的加速度效果。
+
 
 
 PathInterpolator就先介绍到这里，接下来看下Evaluator
@@ -595,11 +603,43 @@ StudentEvaluator：自定义估值器，获取对象并作用后返回。
 ![](http://ww4.sinaimg.cn/large/0060lm7Tgy1fd7t3rupptg30go04z430.gif)
 
 
+但是，这样是有前提的啊，前提是学生只能活到22岁，该学生好可悲啊，那么好把，让你活久一点。
+
+	ValueAnimator valueAnimator=new ValueAnimator().ofObject(new StudentEvaluator(),
+		new Student(0,40),new Student(100,188));
+![](http://ww1.sinaimg.cn/large/0060lm7Tgy1fd8a03vkx6g30go04djw8.gif)
+
+他妈的，这孩子想干啥，虽然长得慢但是也不能一直长啊，纳尼。<br>
+可以发现，无论我们在外面怎么更改，也不能达到我们想要的效果，所以我们只能从StudentEvaluator出发、
+
+      @Override
+    public Student evaluate(float fraction, Student startValue, Student endValue) {
+        int startAge = startValue.getAge();
+        int startHeight = startValue.getHeight();
+        int endAge = endValue.getAge();
+        int endHeight = endValue.getHeight();
+
+        int currentAge = (int) (startAge + fraction * (endAge - startAge));
+
+        int currentHeight = (int) (startHeight + fraction * (endHeight - startHeight));
+        if (currentAge>=22){
+          currentHeight=188;
+        }
+
+        return new Student(currentAge, currentHeight);
+    }
+
+我们可以让使用该估值器的地方随便填写，当然年龄我们就不做限制了，我们这里仅对身高做限制，一般来说年龄到达22就不让他增长了，身高我们暂且都给一个188吧，哈哈。
+当然，这个估值器里面还存在很多的问题，比如我要是年龄到22了身高没到188怎么办？身高和年龄的成长速度关系等……
+
+
 估值器先介绍到这里，当然你可以根据自己的业务逻辑完成自己的估值器。
 
 ## ViewPropertyAnimator
 
-在3.0以后同样增加的就是ViewPropertyAnimator，它的用法比ObjectAnimator更加方便，更加好用。
+在3.0以后同样增加的就是ViewPropertyAnimator，总的来说应该也属于属性动画的范畴吧，它的用法比ObjectAnimator更加方便（但是我还是比较上面的方式）
+
+下面是ViewPropertyAnimator的一些特点（[引用](http://blog.csdn.net/guolin_blog/article/details/44171115 "引用")）。
 
 > 
 > 
@@ -660,9 +700,11 @@ StudentEvaluator：自定义估值器，获取对象并作用后返回。
 
 ## 后记
 
-怎么样，学完属性动画是不是已经爱上它了？没有也没关系，先用起来吧，相信你试过以后一定会爱上我，不，是它，是它！。
+怎么样，学完属性动画是不是已经爱上它了？没有也没关系，先用起来吧，相信你试过以后一定会爱上我，不，是它，是它！。<br>
+赶脚还有很多东西没写，但是这篇文章真的写了好久了，先这样吧，以后会分析一些真正关于属性动画相关实践的东西。
 
-照例：
+最后照例：[Demo地址](https://github.com/flyou/PropertyAnimatorDemo)
+
 
 
 

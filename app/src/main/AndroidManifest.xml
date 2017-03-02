@@ -21,7 +21,8 @@
         <activity android:name=".interpolator.InterpolatorPathActivity" />
         <activity android:name=".EvaluatorActivity" />
         <activity android:name=".customProperty.CustomPropertyActivity" />
-        <activity android:name=".AnimActivity"></activity>
+        <activity android:name=".AnimActivity" />
+        <activity android:name=".interpolator.BrizerActivity"></activity>
     </application>
 
 </manifest>
